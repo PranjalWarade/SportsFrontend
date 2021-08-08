@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 item">
+        <div class="card item-card card-block">
+      <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+          <h4 class="item-card-title mt-3 mb-3"><b>Chess</b></h4>
+          <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p> 
+          <div>
+              <button class="btn btn-link " routerLink="/viewevent">View Details</button> 
+              <button class="btn btn-link " routerLink="/registerevent">Register for Event</button>
+          </div>
+          <div class="card-footer warningMsg" *ngIf="msg!=''">
+              <p>{{msg}}</p>
+          </div>
+    </div>
+      </div>    
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-6">
+        <div class="card giveMargin">
+            <div class="card-header colorLight">
+                New Event
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Cricket</h5>
+                <p class="card-text">Team required for participating</p>
+                <div>
+                    <button class="btn btnDarkMargin colorDark" routerLink="/viewevent">ViewDetails</button>
+                    <button class="btn btnDarkMargin btn-success" (click)="clickEvent()">Register</button>
+                </div>
+            </div>
+            <div class="card-footer warningMsg" *ngIf="msg!=''">
+                <p>{{msg}}</p>
+            </div>
+        </div>
+    </div> 
+
+    <div class="col-md-6">
+        <div class="card giveMargin">
+            <div class="card-header colorLight">
+                New Event
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Tennis</h5>
+                <p class="card-text">Team participation not allowed</p>
+                <div>
+                    <button class="btn btnDarkMargin colorDark" routerLink="/viewevent">ViewDetails</button>
+                    <button class="btn btnDarkMargin btn-success" (click)="clickEvent()">Register</button>
+                </div>
+            </div>
+            <div class="card-footer warningMsg" *ngIf="msg!=''">
+                <p>{{msg}}</p>
+            </div>
+        </div>
+    </div>
+</div> -->
+    
