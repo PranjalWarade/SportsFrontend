@@ -13,16 +13,16 @@ export class RegisterComponent implements OnInit {
 
   user = new User();
   constructor(public registerService: RegisterEmployeeService, private router : Router) { }
-  
+
   /*form: any = {
     username: null,
     email: null,
     password: null
-  };
-  isSuccessful = false;
+  };*/
+  isSignUpSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-*/
+
 
 
   ngOnInit() {
@@ -30,12 +30,17 @@ export class RegisterComponent implements OnInit {
 
   addUser() {
     this.registerService.registerUser(this.user)
-      .subscribe(data => {
-        console.log(data)
-      })      
+      .subscribe((data: any) => {
+        console.log("User created with id - " + data['email']);
+        this.isSignUpSuccessful = true;
+      },
+      (error: any) => {
+        console.log(error['error']['message']);
+        this.isSignUpFailed = true;
+      })
   }
-  /*
+
   onSubmit(): void {
-    const { name, email, password } = this.user;
-  }*/
+
+  }
 }

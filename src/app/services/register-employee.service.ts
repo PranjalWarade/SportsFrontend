@@ -10,16 +10,17 @@ export class RegisterEmployeeService {
 
   makes: any[] = [];
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.makes = [];
   }
 
   registerUser(user:User): Observable<any> {
-    const headers = { 'content-type': 'application/json'}
+    const headers = { 'content-type': 'application/json' }
+    //const
     const body=JSON.stringify(user);
     console.log(body)
     return this.http.post(`${this.baseUrl}/employee/signup` + '', body,{'headers':headers})
   }
-  
+
 
 }

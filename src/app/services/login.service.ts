@@ -14,7 +14,9 @@ export class LoginService {
   //Calling Server to generate token
 
   public doLogin(credentials: any){
-    return this.http.post(`${this.baseUrl}/token`, credentials)
+    const headers = { 'content-type': 'application/json' }
+    const body=JSON.stringify(credentials);
+    return this.http.post(`${this.baseUrl}/employee/login`, body, {'headers':headers})
   }
 
   //for login User
