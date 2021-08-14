@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -16,13 +16,13 @@ export class LoginService {
   public doLogin(credentials: any){
     const headers = { 'content-type': 'application/json' }
     const body=JSON.stringify(credentials);
-    return this.http.post(`${this.baseUrl}/employee/login`, body, {'headers':headers})
+    return this.http.post(`${this.baseUrl}/employee/login`, body, {'headers':headers});
   }
 
   //for login User
-  async login(token: string){
+  async saveToken(token: string){
     localStorage.setItem("token", token);
-    this.isSignedIn = true;
+    console.log("Saved token - " + localStorage.getItem("token"));
     return true;
   }
   //to check if user is loggedin

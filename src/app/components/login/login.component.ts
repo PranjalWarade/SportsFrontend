@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = null;
+  errorMessage = '';
 
   constructor(public loginService: LoginService, private router : Router) { }
 
@@ -29,13 +29,14 @@ export class LoginComponent implements OnInit {
   doLogin(): void {
     this.loginService.doLogin(this.credentials)
     .subscribe((data: any) => {
-      var loc = data['token'];
-      console.log("User Logged in with token - " + data['token']);
+      this.loginService.saveToken(data['token']);
       this.isLoggedIn = true;
     },
     (error: any) => {
       console.log(error['error']['message']);
-      this.errorMessage = error['error']['message'];
+      var errorMsg = 'Please enter valid credentials';
+      this.errorMessage = errorMsg;
+      this.isLoggedIn = false;
       this.isLoginFailed = true;
     })
   }

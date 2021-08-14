@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetAllEventsService } from 'src/app/services/get-all-events.service';
 
 
 @Component({
@@ -10,20 +11,25 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   content?: string;
   msg: string = '';
-  router: any;
+  eventData:any;
+  specificEventId:any;
 
-  constructor() { }
+  constructor(public GetAllEventsService:GetAllEventsService,
+    public router:Router) { }
 
   ngOnInit(): void {
+    this.GetAllEventsService.getAllEvents()
+    .subscribe((data: any) => {
+      console.log(data);
+      this.eventData = data;
+    });
+  }
 
+
+  getEvent(eventId: any){
+    this.router.navigate(['/viewevent']);
   }
-  clickEvent() {
-    this.msg = 'Please Login to Register for the Event';
-    return this.msg;
-  }
-  clickEventDetails() {
-    return;
-  }
+
 }
 
 

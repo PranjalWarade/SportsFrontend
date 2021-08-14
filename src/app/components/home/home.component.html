@@ -1,19 +1,19 @@
 <div class="container mt-5">
     <div class="row">
-      <div class="col-md-3 col-sm-6 item">
-        <div class="card item-card card-block">
-      <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
-          <h4 class="item-card-title mt-3 mb-3"><b>Chess</b></h4>
-          <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p> 
+      <div *ngFor="let elem of eventData" class="col-md-3 col-sm-6 item">
+        <div  class="card item-card card-block">
+          <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+          <h4 class="item-card-title mt-3 mb-3"><b>{{elem.name}}</b></h4>
+          <p class="card-text">{{elem.description}}</p>
           <div>
-              <button class="btn btn-link " routerLink="/viewevent">View Details</button> 
-              <button class="btn btn-link " routerLink="/registerevent">Register for Event</button>
+              <button class="btn btn-link" (click)="getEvent(elem.eventId)">View Details</button>
+              <!--<button class="btn btn-link " routerLink="/login">Register for Event</button>-->
           </div>
           <div class="card-footer warningMsg" *ngIf="msg!=''">
               <p>{{msg}}</p>
           </div>
     </div>
-      </div>    
+      </div>
     </div>
 </div>
 
@@ -35,7 +35,7 @@
                 <p>{{msg}}</p>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="col-md-6">
         <div class="card giveMargin">
@@ -56,4 +56,3 @@
         </div>
     </div>
 </div> -->
-    

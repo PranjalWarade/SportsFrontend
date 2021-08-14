@@ -14,11 +14,6 @@ export class RegisterComponent implements OnInit {
   user = new User();
   constructor(public registerService: RegisterEmployeeService, private router : Router) { }
 
-  /*form: any = {
-    username: null,
-    email: null,
-    password: null
-  };*/
   isSignUpSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -33,9 +28,14 @@ export class RegisterComponent implements OnInit {
       .subscribe((data: any) => {
         console.log("User created with id - " + data['email']);
         this.isSignUpSuccessful = true;
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+      }, 5000);
       },
       (error: any) => {
         console.log(error['error']['message']);
+        this.errorMessage = error['error']['message'];
+        this.isSignUpSuccessful = false;
         this.isSignUpFailed = true;
       })
   }

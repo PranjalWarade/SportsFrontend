@@ -4,8 +4,7 @@
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1oJbq8uoavHOngzYj_4Kdd0oPf2W0zKS8tA&usqp=CAU"
             class="profile-img-card" />
             <form role="form" #loginform="ngForm">
-       <!-- <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>-->
-            <div class="form-group">
+       <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" name="username" [(ngModel)]="user.name" required
                     minlength="3" maxlength="20" #name="ngModel" />
@@ -58,13 +57,13 @@
                 <!--<button class="btn colorDark btn-block">Sign Up</button>-->
             </div>
 
-            <!--<div class="alert alert-warning warningMsg" *ngIf="f.submitted && isSignUpFailed">
-                Signup failed!<br />{{ errorMessage }}
-            </div>-->
+            <div class="alert alert-warning warningMsg" *ngIf="!isSignUpSuccessful && isSignUpFailed">
+                {{ errorMessage }}
+            </div>
         </form>
 
-        <!--<div class="alert alert-success" *ngIf="isSuccessful">
+        <div class="alert alert-success" *ngIf="isSignUpSuccessful">
             Your registration is successful!
-        </div>-->
+        </div>
     </div>
 </div>

@@ -5,11 +5,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './viewevent.component.html',
   styleUrls: ['./viewevent.component.css']
 })
+
 export class VieweventComponent implements OnInit {
+
+  eventData:any;
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  public getEvent(eventId: any){
+    console.log(eventId);
+
   }
 
 }

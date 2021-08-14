@@ -21,10 +21,10 @@ import { RegistereventComponent } from './components/registerevent/registerevent
     RegistereventComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
