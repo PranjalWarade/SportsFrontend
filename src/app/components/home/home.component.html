@@ -7,52 +7,15 @@
           <p class="card-text">{{elem.description}}</p>
           <div>
               <button class="btn btn-link" (click)="getEvent(elem.eventId)">View Details</button>
-              <!--<button class="btn btn-link " routerLink="/login">Register for Event</button>-->
-          </div>
-          <div class="card-footer warningMsg" *ngIf="msg!=''">
-              <p>{{msg}}</p>
+              <button class="btn btn-link " (click)="registerEvent()">Register for Event</button>
           </div>
     </div>
+
+
       </div>
     </div>
 </div>
 
-<!-- <div class="row">
-    <div class="col-md-6">
-        <div class="card giveMargin">
-            <div class="card-header colorLight">
-                New Event
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Cricket</h5>
-                <p class="card-text">Team required for participating</p>
-                <div>
-                    <button class="btn btnDarkMargin colorDark" routerLink="/viewevent">ViewDetails</button>
-                    <button class="btn btnDarkMargin btn-success" (click)="clickEvent()">Register</button>
-                </div>
-            </div>
-            <div class="card-footer warningMsg" *ngIf="msg!=''">
-                <p>{{msg}}</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="card giveMargin">
-            <div class="card-header colorLight">
-                New Event
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Tennis</h5>
-                <p class="card-text">Team participation not allowed</p>
-                <div>
-                    <button class="btn btnDarkMargin colorDark" routerLink="/viewevent">ViewDetails</button>
-                    <button class="btn btnDarkMargin btn-success" (click)="clickEvent()">Register</button>
-                </div>
-            </div>
-            <div class="card-footer warningMsg" *ngIf="msg!=''">
-                <p>{{msg}}</p>
-            </div>
-        </div>
-    </div>
-</div> -->
+<div class="footer warningMsg" *ngIf="msg!=''">
+  <p>{{msg}}</p>
+</div>

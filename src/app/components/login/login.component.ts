@@ -9,11 +9,6 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  /*form: any = {
-    username: null,
-    password: null
-  };
-  roles: string[] = [];*/
 
   credentials = new Credentials()
 
@@ -24,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(public loginService: LoginService, private router : Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem("isLoggedIn", "false");
   }
 
   doLogin(): void {
@@ -31,6 +27,7 @@ export class LoginComponent implements OnInit {
     .subscribe((data: any) => {
       this.loginService.saveToken(data['token']);
       this.isLoggedIn = true;
+      localStorage.setItem("isLoggedIn", "true");
     },
     (error: any) => {
       console.log(error['error']['message']);
@@ -38,6 +35,7 @@ export class LoginComponent implements OnInit {
       this.errorMessage = errorMsg;
       this.isLoggedIn = false;
       this.isLoginFailed = true;
+      localStorage.setItem("isLoggedIn", "false");
     })
   }
 

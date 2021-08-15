@@ -25,9 +25,20 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
   getEvent(eventId: any){
+    localStorage.setItem("eventId", eventId);
     this.router.navigate(['/viewevent']);
+  }
+
+  registerEvent(){
+    if(localStorage.getItem("isLoggedIn") == "true"){
+      this.router.navigate(['/registerevent']);
+    } else {
+      this.msg = "Please login to participate in event!!";
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 5000);
+    }
   }
 
 }

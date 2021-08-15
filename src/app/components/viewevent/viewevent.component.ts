@@ -1,24 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { GetEventService } from 'src/app/services/get-event.service';
 
 @Component({
   selector: 'app-viewevent',
   templateUrl: './viewevent.component.html',
-  styleUrls: ['./viewevent.component.css']
+  styleUrls: ['./viewevent.component.css'],
+  providers: [GetEventService]
 })
 
 export class VieweventComponent implements OnInit {
 
+  eventId:any;
   eventData:any;
+  msg:string = '';
 
-  constructor() { }
+  constructor(public GetEventService:GetEventService,
+    public router:Router) { }
 
   ngOnInit(): void {
-
+    this.eventId = localStorage.getItem("eventId");
+    this.GetEventService.getEventData(this.eventId)
+    .subscribe((data: any) => {
+      this.eventData = data;
+      console.log(data);
+    });
   }
 
-  public getEvent(eventId: any){
-    console.log(eventId);
-
+  registerEvent(){
+    if(localStorage.getItem("isLoggedIn") == "true"){
+      this.router.navigate(['/registerevent']);
+    } else {
+      this.msg = "Please login to participate in event!!";
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 5000);
+    }
   }
 
 }
